@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Github Users</string>
+    <string name="github_name">Dummy Name</string>
+    <string name="username">dummy username</string>
+    <string name="followers">%d followers</string>
+    <string name="dummy_location">Bandung, Jawa Barat</string>
+    <string name="dummy_company">Google Indonesia</string>
+    <string name="dummy_repos">%d repositories</string>
+    <string name="share">share</string>
+    <string name="following">%d following</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment_2">Hello blank fragment followers</string>
+    <string name="following_tab">Following</string>
+    <string name="followers_tab">Followers</string>
+    <string name="hint_search">cari pengguna disini ...</string>
+    <string name="avatar_image">Avatar image</string>
+    <string name="no_user_found">No user found</string>
+    <string name="cari_username_github">Cari username github</string>
+    <string name="no_favorite_found">No favorite in the list</string>
+    <string name="added">Added to favorite</string>
+    <string name="favorites">Favorites</string>
+    <string name="dark_theme_menu">dark theme</string>
+    <string name="light_theme_menu">light theme</string>
+
+
+</resources>
