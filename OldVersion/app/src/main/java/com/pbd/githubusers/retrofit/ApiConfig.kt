@@ -1,5 +1,6 @@
 package com.pbd.githubusers.retrofit
 
+import com.pbd.githubusers.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -14,6 +15,7 @@ class ApiConfig {
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
             val client = OkHttpClient.Builder()
                 .addInterceptor(loggingInterceptor)
+                .addInterceptor(AuthInterceptor(BuildConfig.GITHUB_TOKEN))
                 .build()
             val retrofit = Retrofit.Builder()
                 .baseUrl(baseUrl)
