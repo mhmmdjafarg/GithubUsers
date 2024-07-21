@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GithubUsers</string>
+    <string name="no_user_found">No user found</string>
+    <string name="github_username">github_username</string>
+    <string name="avatar_image">avatar_image</string>
+    <string name="main_following">Following: xx</string>
+    <string name="main_followers">Followers: xx</string>
+</resources>
