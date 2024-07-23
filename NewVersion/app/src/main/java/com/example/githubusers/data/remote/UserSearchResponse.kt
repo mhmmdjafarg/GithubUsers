@@ -14,11 +14,11 @@ data class UserSearchResponse(
 	val incompleteResults: Boolean? = null,
 
 	@field:SerializedName("items")
-	val items: List<ItemsSearch?>? = null
+	val items: List<User>
 ) : Parcelable
 
 @Parcelize
-data class ItemsSearch(
+data class User(
 
 	@field:SerializedName("login")
 	val login: String? = null,

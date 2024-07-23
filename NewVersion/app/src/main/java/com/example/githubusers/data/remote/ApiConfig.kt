@@ -14,7 +14,7 @@ class ApiConfig {
                 HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
             val client = OkHttpClient.Builder()
                 .addInterceptor(loggingInterceptor)
-                .addInterceptor(AuthInterceptor("token"))
+                .addInterceptor(AuthInterceptor(""))
                 .build()
             val retrofit = Retrofit.Builder()
                 .baseUrl(baseUrl)
