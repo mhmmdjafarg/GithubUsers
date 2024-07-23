@@ -4,11 +4,11 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.example.githubusers.data.Result
-import com.example.githubusers.data.remote.ApiConfig
 import com.example.githubusers.data.remote.ApiService
 import com.example.githubusers.data.remote.User
+import javax.inject.Inject
 
-class UserRepository(
+class UserRepository @Inject constructor(
     private val apiService: ApiService
 ) {
     fun searchUsers(query: String) : LiveData<Result<List<User>>> = liveData {
