@@ -24,7 +24,9 @@ class AppModule {
             .addInterceptor(loggingInterceptor)
             .addInterceptor(AuthInterceptor(""))
             .build()
-        val retrofit = Retrofit.Builder()
+        val retrofit = Retrofit.Builder(
+
+        )
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)

@@ -6,4 +6,5 @@
     <string name="main_following">Following: xx</string>
     <string name="main_followers">Followers: xx</string>
     <string name="find_github_username_here">Find github username here ...</string>
+    <string name="something_wrong">Oops Something Wrong</string>
 </resources>

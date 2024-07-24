@@ -2,11 +2,11 @@ package com.example.githubusers.ui.main
 
 import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
-import androidx.appcompat.widget.SearchView
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -46,13 +46,19 @@ class MainActivity : AppCompatActivity() {
                 viewModel.searchUsers(it).observe(this) { result ->
                     result?.let {
                         when (it) {
-                            is Result.Loading -> Log.d("SEARCH_LOADING", "Result loading")
+                            is Result.Loading -> {
+                                binding.progressBarMain.visibility = View.VISIBLE
+                            }
                             is Result.Success -> {
+                                binding.progressBarMain.visibility = View.GONE
                                 val listUsers = it.data
                                 listUserAdapter.updateData(listUsers)
                             }
-
-                            is Result.Error -> Log.e("SEARCH_ERROR", it.error)
+                            is Result.Error -> {
+                                binding.progressBarMain.visibility = View.GONE
+                                binding?.viewError?.root?.visibility = View.VISIBLE
+                                binding?.viewError?.tvError?.text = getString(R.string.something_wrong)
+                            }
                         }
                     }
                 }
