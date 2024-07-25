@@ -1,5 +1,6 @@
 package com.example.githubusers.ui.main
 
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
@@ -16,6 +17,7 @@ import com.example.githubusers.R
 import com.example.githubusers.data.Result
 import com.example.githubusers.data.remote.User
 import com.example.githubusers.databinding.ActivityMainBinding
+import com.example.githubusers.ui.detail.DetailActivity
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -52,12 +54,14 @@ class MainActivity : AppCompatActivity() {
                             is Result.Success -> {
                                 binding.progressBarMain.visibility = View.GONE
                                 val listUsers = it.data
-                                listUserAdapter.updateData(listUsers)
+                                if (listUsers != null) {
+                                    listUserAdapter.updateData(listUsers)
+                                }
                             }
                             is Result.Error -> {
                                 binding.progressBarMain.visibility = View.GONE
-                                binding?.viewError?.root?.visibility = View.VISIBLE
-                                binding?.viewError?.tvError?.text = getString(R.string.something_wrong)
+                                binding.viewError.root.visibility = View.VISIBLE
+                                binding.viewError.tvError.text = getString(R.string.something_wrong)
                             }
                         }
                     }
@@ -102,7 +106,9 @@ class MainActivity : AppCompatActivity() {
 
         listUserAdapter.setOnItemClickCallback(object : ListUserAdapter.OnItemClickCallback {
             override fun onItemClicked(data: User) {
-                Toast.makeText(this@MainActivity, "Clicked user " + data.login, Toast.LENGTH_SHORT).show()
+                val moveToDetailIntent = Intent(this@MainActivity, DetailActivity::class.java)
+                moveToDetailIntent.putExtra(DetailActivity.EXTRA_USER, data.login)
+                startActivity(moveToDetailIntent)
             }
         })
     }

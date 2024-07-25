@@ -5,6 +5,7 @@ import android.content.Context
 import com.example.githubusers.data.remote.ApiConfig
 import com.example.githubusers.data.repository.UserRepository
 
+// DI Service Locator
 object Injection {
     fun provideRepository(context: Context): UserRepository {
         val apiService = ApiConfig.getApiService()

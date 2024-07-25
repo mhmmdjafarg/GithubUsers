@@ -11,36 +11,32 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Singleton
 
 @Module
-class AppModule {
+class NetworkModule {
+
     private val baseUrl: String = "https://api.github.com/"
 
+    @Singleton
     @Provides
-    fun provideApiService(): ApiService {
+    fun providesRetrofit() : Retrofit{
         val loggingInterceptor =
             HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
         val client = OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .addInterceptor(AuthInterceptor(""))
             .build()
-        val retrofit = Retrofit.Builder(
-
-        )
+        return Retrofit.Builder()
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
+    }
+
+    @Singleton
+    @Provides
+    fun providesApiService(retrofit: Retrofit): ApiService {
         return retrofit.create(ApiService::class.java)
-    }
-
-    @Provides
-    fun provideUserRepository(apiService: ApiService): UserRepository {
-        return UserRepository(apiService)
-    }
-
-    @Provides
-    fun provideViewModelFactory(userRepository: UserRepository): ViewModelProvider.Factory {
-        return ViewModelFactory(userRepository)
     }
 }

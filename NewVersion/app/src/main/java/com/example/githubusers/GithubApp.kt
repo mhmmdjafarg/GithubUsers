@@ -2,7 +2,6 @@ package com.example.githubusers
 
 import android.app.Application
 import com.example.githubusers.di.AppComponent
-import com.example.githubusers.di.AppModule
 import com.example.githubusers.di.DaggerAppComponent
 
 class GithubApp : Application() {
@@ -13,7 +12,7 @@ class GithubApp : Application() {
         super.onCreate()
 
         appComponent = DaggerAppComponent.builder()
-            .appModule(AppModule())
+//            .appModule(AppModule())
             .build()
     }
 }

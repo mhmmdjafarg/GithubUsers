@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.githubusers.data.repository.UserRepository
 import com.example.githubusers.di.Injection
+import com.example.githubusers.ui.detail.DetailViewModel
 import com.example.githubusers.ui.main.MainViewModel
 import javax.inject.Inject
 
@@ -14,6 +15,8 @@ class ViewModelFactory @Inject constructor(private val userRepository: UserRepos
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
             return MainViewModel(userRepository) as T
+        } else if (modelClass.isAssignableFrom(DetailViewModel::class.java)) {
+            return DetailViewModel(userRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }

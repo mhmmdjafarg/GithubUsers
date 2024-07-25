@@ -7,4 +7,11 @@
     <string name="main_followers">Followers: xx</string>
     <string name="find_github_username_here">Find github username here ...</string>
     <string name="something_wrong">Oops Something Wrong</string>
+    <string name="githubusername">GithubUsername</string>
+    <string name="github_name">github name</string>
+    <string name="following_number">%d following</string>
+    <string name="followers_number">%d followers</string>
+    <string name="user_location">user_location</string>
+    <string name="user_company">user_company</string>
+    <string name="repositories_number">%d repositories</string>
 </resources>
