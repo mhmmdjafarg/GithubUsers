@@ -9,4 +9,9 @@ class DetailViewModel @Inject constructor(
 ) : ViewModel() {
 
     fun getDetailUser(username: String) = userRepository.detailUser(username)
+
+    fun getFollowings(username: String) = userRepository.getFollowings(username)
+
+    fun getFollowers(username: String) = userRepository.getFollowers(username)
+
 }

@@ -7,7 +7,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class SectionsPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
 
-    private var username = ""
+    var username = ""
     override fun createFragment(position: Int): Fragment {
         val followingFragment = FollowingFragment()
         followingFragment.arguments = Bundle().apply {

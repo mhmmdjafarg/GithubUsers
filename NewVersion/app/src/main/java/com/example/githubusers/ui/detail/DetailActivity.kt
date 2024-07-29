@@ -4,13 +4,17 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.example.githubusers.GithubApp
 import com.example.githubusers.R
 import com.example.githubusers.data.Result
 import com.example.githubusers.databinding.ActivityDetailBinding
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import javax.inject.Inject
 
 class DetailActivity : AppCompatActivity() {
@@ -80,6 +84,17 @@ class DetailActivity : AppCompatActivity() {
                 }
             }
         }
+
+        // Sections pager following / followers
+        val sectionsPagerAdapter = SectionsPagerAdapter(this)
+        sectionsPagerAdapter.username = username
+        val viewPager: ViewPager2 = binding.viewPager
+        viewPager.adapter = sectionsPagerAdapter
+        val tabs: TabLayout = findViewById(R.id.tabs)
+        TabLayoutMediator(tabs, viewPager) { tab, position ->
+            tab.text = resources.getString(TAB_TITLES[position])
+        }.attach()
+        supportActionBar?.elevation = 0f
     }
 
     // Handle the Up button click event
@@ -96,5 +111,12 @@ class DetailActivity : AppCompatActivity() {
 
     companion object {
         const val EXTRA_USER = "extra_user"
+
+
+        @StringRes
+        private val TAB_TITLES = intArrayOf(
+            R.string.following_tab,
+            R.string.followers_tab
+        )
     }
 }

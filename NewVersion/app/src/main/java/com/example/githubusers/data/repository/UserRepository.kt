@@ -26,7 +26,7 @@ class UserRepository @Inject constructor(
             }
             emit(Result.Success(userList))
         } catch (e: Exception) {
-            Log.d("NewsRepository", "getHeadlineNews: ${e.message.toString()} ")
+            Log.d("searchUsers", "searchUsers: ${e.message.toString()} ")
             emit(Result.Error(e.message.toString()))
         }
     }
@@ -51,6 +51,40 @@ class UserRepository @Inject constructor(
             emit(Result.Success(githubUser))
         } catch (e: Exception) {
             Log.d("detailUser", "Get detail user error: ${e.message.toString()} ")
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun getFollowings(username: String): LiveData<Result<List<User>?>> = liveData {
+        emit(Result.Loading)
+        try {
+            val response = apiService.getFollowingUser(username)
+            val userList = response.body()?.map { user ->
+                User(
+                    user.login,
+                    user.avatarUrl,
+                )
+            }
+            emit(Result.Success(userList))
+        } catch (e: Exception) {
+            Log.d("getFollowingUser", "getFollowingUser: ${e.message.toString()} ")
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun getFollowers(username: String): LiveData<Result<List<User>?>> = liveData {
+        emit(Result.Loading)
+        try {
+            val response = apiService.getFollowersUser(username)
+            val userList = response.body()?.map { user ->
+                User(
+                    user.login,
+                    user.avatarUrl,
+                )
+            }
+            emit(Result.Success(userList))
+        } catch (e: Exception) {
+            Log.d("getFollowersUser", "getFollowersUser: ${e.message.toString()} ")
             emit(Result.Error(e.message.toString()))
         }
     }
