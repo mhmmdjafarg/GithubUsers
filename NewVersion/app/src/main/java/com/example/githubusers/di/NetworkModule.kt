@@ -1,10 +1,7 @@
 package com.example.githubusers.di
 
-import androidx.lifecycle.ViewModelProvider
 import com.example.githubusers.data.remote.ApiService
 import com.example.githubusers.data.remote.AuthInterceptor
-import com.example.githubusers.data.repository.UserRepository
-import com.example.githubusers.ui.ViewModelFactory
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

@@ -1,4 +1,4 @@
-package com.example.githubusers.data.remote
+package com.example.githubusers.data.remote.response
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

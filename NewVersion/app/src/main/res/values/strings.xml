@@ -14,4 +14,6 @@
     <string name="user_location">user_location</string>
     <string name="user_company">user_company</string>
     <string name="repositories_number">%d repositories</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

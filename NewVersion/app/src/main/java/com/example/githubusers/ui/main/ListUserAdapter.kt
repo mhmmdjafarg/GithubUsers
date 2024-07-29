@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.githubusers.R
-import com.example.githubusers.data.remote.User
+import com.example.githubusers.data.remote.response.User
 import de.hdodenhof.circleimageview.CircleImageView
 
 class ListUserAdapter(

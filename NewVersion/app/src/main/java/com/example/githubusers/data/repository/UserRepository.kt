@@ -6,7 +6,7 @@ import androidx.lifecycle.liveData
 import com.example.githubusers.data.Result
 import com.example.githubusers.data.model.GithubUser
 import com.example.githubusers.data.remote.ApiService
-import com.example.githubusers.data.remote.User
+import com.example.githubusers.data.remote.response.User
 import javax.inject.Inject
 
 class UserRepository @Inject constructor(

@@ -1,6 +1,7 @@
 package com.example.githubusers.data.remote
 
-import retrofit2.Call
+import com.example.githubusers.data.remote.response.UserDetailResponse
+import com.example.githubusers.data.remote.response.UserSearchResponse
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

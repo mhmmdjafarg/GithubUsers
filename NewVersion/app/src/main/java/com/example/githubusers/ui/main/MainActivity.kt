@@ -5,7 +5,6 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.view.Menu
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
@@ -15,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.githubusers.GithubApp
 import com.example.githubusers.R
 import com.example.githubusers.data.Result
-import com.example.githubusers.data.remote.User
+import com.example.githubusers.data.remote.response.User
 import com.example.githubusers.databinding.ActivityMainBinding
 import com.example.githubusers.ui.detail.DetailActivity
 import javax.inject.Inject

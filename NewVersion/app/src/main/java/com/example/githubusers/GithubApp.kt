@@ -11,8 +11,6 @@ class GithubApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        appComponent = DaggerAppComponent.builder()
-//            .appModule(AppModule())
-            .build()
+        appComponent = DaggerAppComponent.builder().build()
     }
 }
